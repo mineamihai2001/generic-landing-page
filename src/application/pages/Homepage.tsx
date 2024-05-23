@@ -15,7 +15,7 @@ export const Homepage: FC<IProps> = inject("globalStore")(
         return (
             <>
                 <BackgroundGradientTop />
-                <div className="w-full min-h-full flex justify-center items-start relative z-50">
+                <div className="w-full flex justify-center items-start relative z-50">
                     <div className="flex flex-col justify-start items-center gap-6 py-16">
                         <span className="text-7xl font-medium">{pageProps?.title ?? ""}</span>
                         <span className="text-2xl font-light text-neutral-5">
@@ -38,12 +38,16 @@ export const Homepage: FC<IProps> = inject("globalStore")(
                             <div
                                 className="h-72 w-1/2 bg-neutral-1 
                                         border-2 border-primary-3 rounded-xl
-                                        shadow-md dark:shadow-neutral-2"
+                                        dark:shadow-neutral-2
+                                        ease-in-out duration-100
+                                        hover:scale-[101%] hover:shadow-[0_0px_10px_5px_var(--color-primary-400)] dark:hover:hover:shadow-[0_0px_10px_5px_var(--color-primary-400)]"
                             ></div>
                             <div
                                 className="h-72 w-1/2 bg-neutral-1 
                                         border-2 border-primary-3 rounded-xl
-                                        shadow-md dark:shadow-neutral-2"
+                                        dark:shadow-neutral-2
+                                        ease-in-out duration-100
+                                        hover:scale-[101%] hover:shadow-[0_0px_10px_5px_var(--color-primary-400)] dark:hover:hover:shadow-[0_0px_10px_5px_var(--color-primary-400)]"
                             ></div>
                         </div>
                         <div className="w-full flex justify-center items-center gap-10 mt-auto">

@@ -13,8 +13,8 @@ export const Contact: FC<IProps> = inject("globalStore")(
         const pageProps = globalStore?.getPageProps("contact")!;
 
         return (
-            <>
-                <div className="w-full min-h-full flex justify-center items-start relative z-50">
+            <> 
+                <div className="w-full flex justify-center items-start relative z-50">
                     <div className="w-full flex flex-col justify-center items-center py-16">
                         <form
                             className="w-1/2 bg-neutral-1 p-8 relative
