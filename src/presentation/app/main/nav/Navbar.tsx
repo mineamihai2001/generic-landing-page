@@ -1,5 +1,4 @@
 import { FC } from "react";
-import logo from "/logo.svg";
 import { inject, observer } from "mobx-react";
 import { GlobalStore } from "../../../../infrastructure/store";
 import { Link, useNavigate } from "react-router-dom";
@@ -23,7 +22,7 @@ export const Navbar: FC<IProps> = inject("globalStore")(
         const navPages = (globalStore?.getConfig().app.main.pages ?? []).filter((p) => p.navItem);
 
         return (
-            <div className="flex justify-start items-center px-8 py-6 border-b-[0.5px] border-neutral-3">
+            <div className="flex justify-start items-center px-8 py-6 border-b-[0.5px] border-neutral-3 relative z-50">
                 <div
                     className="flex justify-center items-center gap-4 cursor-pointer"
                     onClick={() => navigate("/")}
@@ -45,8 +44,12 @@ export const Navbar: FC<IProps> = inject("globalStore")(
                     })}
                 </div>
                 <div className="flex justify-center items-center gap-4">
-                    {(globalStore?.getConfig().app.main.nav?.buttons ?? []).map((b) => {
-                        return <Button mode={b.mode}>{b.text}</Button>;
+                    {(globalStore?.getConfig().app.main.nav?.buttons ?? []).map((b, i) => {
+                        return (
+                            <Button mode={b.mode} key={`nav-button-${i}`}>
+                                {b.text}
+                            </Button>
+                        );
                     })}
                     <IconButton
                         icon={<FontAwesomeIcon icon={faCircleHalfStroke} size="xl" />}

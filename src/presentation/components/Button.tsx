@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, MouseEventHandler } from "react";
 
 type ButtonColor = "primary" | "success" | "warning" | "danger" | "neutral";
 
@@ -6,9 +6,10 @@ interface IProps {
     children: React.ReactNode;
     className?: string;
     mode?: "outlined" | "contained";
+    onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-export const Button: FC<IProps> = ({ children, className = "", mode = "contained" }) => {
+export const Button: FC<IProps> = ({ children, className = "", mode = "contained", onClick }) => {
     const animationDuration: string = "duration-150";
 
     function getButton() {
@@ -20,6 +21,7 @@ export const Button: FC<IProps> = ({ children, className = "", mode = "contained
                                     shadow-md
                                     hover:rounded-md
                                     transition-all ${animationDuration} ${className}`}
+                        onClick={onClick}
                     >
                         {children}
                     </button>
@@ -28,10 +30,11 @@ export const Button: FC<IProps> = ({ children, className = "", mode = "contained
                 return (
                     <button
                         className={`bg-primary-3 text-white px-6 py-3 rounded-3xl
-                                    shadow-md
-                                    dark:shadow-neutral-3 
-                                    hover:rounded-md
-                                    transition-all duration-100 ${animationDuration} ${className}`}
+                        shadow-md
+                        dark:shadow-neutral-3 
+                        hover:rounded-md
+                        transition-all duration-100 ${animationDuration} ${className}`}
+                        onClick={onClick}
                     >
                         {children}
                     </button>

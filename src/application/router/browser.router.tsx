@@ -1,12 +1,14 @@
 import { createBrowserRouter, RouteObject } from "react-router-dom";
-import { Homepage } from "../pages";
+import { Contact, Homepage } from "../pages";
 import { Main } from "../../presentation/app/main/Main";
 import { Page } from "../../domain/model/IConfig";
 import { ReactNode } from "react";
+import { Error } from "../../presentation/app/error";
 
 export function getBrowserRouter(pages: Page[]) {
     const elements: { [key: string]: ReactNode } = {
         home: <Homepage />,
+        contact: <Contact />,
     };
 
     const routeObject: RouteObject[] = [
@@ -19,12 +21,18 @@ export function getBrowserRouter(pages: Page[]) {
                         return null;
                     }
 
-                    return {
-                        index: p.index,
-                        element: elements[p.id],
-                    };
+                    return p.index === true
+                        ? {
+                              index: p.index,
+                              element: elements[p.id],
+                          }
+                        : {
+                              path: p.id,
+                              element: elements[p.id],
+                          };
                 })
                 .filter((c) => c !== null),
+            errorElement: <Error />,
         },
     ];
 

@@ -1,3 +1,5 @@
+export type PageName = "home" | "contact";
+
 export type ButtonAction = {
     name: "navigate";
     to: string;
@@ -8,6 +10,11 @@ export type ButtonConfig = {
     color?: string;
     mode?: "outlined" | "contained";
     action?: ButtonAction;
+};
+
+export type IconConfig = {
+    light: string;
+    dark: string;
 };
 
 export type Page = {
@@ -23,9 +30,24 @@ export type HomepageProps = {
     description?: string;
     buttons: ButtonConfig[];
     cards?: unknown[];
-    partners?: {
-        light: string;
-        dark: string;
+    partners?: IconConfig[];
+};
+
+export type ContactProps = {
+    form: {
+        title: string;
+        description?: string;
+        fields: {
+            id: string;
+            placeholder?: string;
+            cols?: number;
+            type?: "textarea" | "text";
+        }[];
+    };
+    social: {
+        icon: IconConfig;
+        url?: string;
+        text: string;
     }[];
 };
 

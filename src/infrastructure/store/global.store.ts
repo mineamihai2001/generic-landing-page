@@ -1,7 +1,7 @@
 import { makeObservable, observable } from "mobx";
 import { IStorageService } from "../../domain/services";
 import { IConfigService } from "../../domain/services/IConfig.service";
-import { HomepageProps, IConfig } from "../../domain/model/IConfig";
+import { ContactProps, HomepageProps, IConfig, PageName } from "../../domain/model/IConfig";
 
 export class GlobalStore {
     public darkMode: boolean;
@@ -37,9 +37,10 @@ export class GlobalStore {
     }
 
     public getPageProps(key: "home"): HomepageProps;
+    public getPageProps(key: "contact"): ContactProps;
     public getPageProps(key: string): undefined;
-    public getPageProps(key: string): HomepageProps | undefined {
-        const page = this.getConfig().app.main.pages.find((p) => p.id === "home");
+    public getPageProps(key: PageName | string): HomepageProps | ContactProps | undefined {
+        const page = this.getConfig().app.main.pages.find((p) => p.id === key);
         return typeof page === "undefined" ? undefined : page.props;
     }
 }
