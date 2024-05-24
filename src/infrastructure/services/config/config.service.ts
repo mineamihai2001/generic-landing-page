@@ -1,4 +1,4 @@
-import { IConfig } from "../../../domain/model/IConfig";
+import { IConfig } from "../../../domain/model/config";
 import { IConfigService } from "../../../domain/services/IConfig.service";
 
 export class ConfigService implements IConfigService {

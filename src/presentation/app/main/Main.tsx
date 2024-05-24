@@ -11,7 +11,7 @@ interface IProps {
 export const Main: FC<IProps> = inject("globalStore")(
     observer(({ globalStore }) => {
         return (
-            <main className="h-full relative bg-neutral-0">
+            <main className="min-h-full bg-neutral-0">
                 <Navbar />
                 <Outlet />
             </main>

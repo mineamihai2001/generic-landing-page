@@ -2,7 +2,12 @@ import { inject, observer } from "mobx-react";
 import { FC } from "react";
 import { GlobalStore } from "../../infrastructure/store";
 import { Button } from "../../presentation/components";
-import { BackgroundGradientBottom } from "../../presentation/app/main/home";
+import { BackgroundGradientBottom } from "../../presentation/components/background/BackgroundGradientBottom";
+import { ContactSection } from "../../domain/model/config";
+import { ContactForm } from "../../presentation/app/main/contact/ContactForm";
+import { Social } from "../../presentation/app/main/contact/Social";
+import React from "react";
+import { Separator } from "../../presentation/components/separator";
 
 interface IProps {
     globalStore?: GlobalStore;
@@ -10,99 +15,42 @@ interface IProps {
 
 export const Contact: FC<IProps> = inject("globalStore")(
     observer(({ globalStore }) => {
-        const pageProps = globalStore?.getPageProps("contact")!;
+        const pageProps = globalStore?.getPageConfig("contact")!;
+
+        function getSection(section: ContactSection) {
+            switch (section.id) {
+                case "form":
+                    return <ContactForm config={section} />;
+                case "social":
+                    return <Social config={section} />;
+                default:
+                    return <></>;
+            }
+        }
 
         return (
-            <> 
+            <>
                 <div className="w-full flex justify-center items-start relative z-50">
                     <div className="w-full flex flex-col justify-center items-center py-16">
-                        <form
-                            className="w-1/2 bg-neutral-1 p-8 relative
-                                border-2 border-primary-3 rounded-xl
-                                shadow-md dark:shadow-neutral-2 
-                                overflow-hidden"
-                        >
-                            <div
-                                className="absolute w-[100%] h-[100%] top-[0%] left-[0%] translate-x-[-20%] z-0"
-                                style={{
-                                    background:
-                                        "linear-gradient(90deg, var(--color-primary-100), var(--color-neutral-100))",
-                                }}
-                            ></div>
-                            <div className="relative flex flex-col gap-6 my-4">
-                                <div className="flex flex-col justify-center items-center gap-2">
-                                    <div className="text-4xl font-semibold  flex justify-center items-center">
-                                        {pageProps.form.title}
-                                    </div>
-                                    <div className="text-lg font-light text-neutral-5">
-                                        {pageProps.form.description}
-                                    </div>
-                                </div>
-                                <div className="py-4 grid grid-cols-12 gap-6">
-                                    {pageProps.form.fields.map((f, i) => {
-                                        let cols = "";
-                                        switch (true) {
-                                            case f.cols === 6:
-                                                cols = "col-span-6";
-                                                break;
-                                            case f.cols === 12:
-                                                cols = "col-span-12";
-                                                break;
-                                            default:
-                                                cols = "col-span-12";
-                                                break;
-                                        }
-                                        return f.type === "textarea" ? (
-                                            <textarea
-                                                key={`contact-form-field-${i}`}
-                                                className={`rounded-lg py-3 px-6 ${cols}`}
-                                                rows={2}
-                                                placeholder={f.placeholder ?? ""}
-                                                id={f.id}
-                                            />
-                                        ) : (
-                                            <input
-                                                key={`contact-form-field-${i}`}
-                                                className={`rounded-full py-3 px-6 ${cols}`}
-                                                placeholder={f.placeholder ?? ""}
-                                                id={f.id}
-                                            />
-                                        );
-                                    })}
-                                </div>
-                                <div className="w-full flex justify-center items-center">
-                                    <Button className="w-1/4">Send</Button>
-                                </div>
-                            </div>
-                        </form>
-                        <div className="my-10">
-                            <span className="text-neutral-6">Or reach us on our socials</span>
-                        </div>
-                        <div className="flex w-full items-center justify-center gap-40">
-                            {pageProps.social.map((s, i) => {
-                                return (
-                                    <div
-                                        key={`contact-social-${i}`}
-                                        className="flex justify-center items-center gap-2 px-4 py-2
-                                                border border-neutral-6 rounded-full
-                                                shadow-md dark:shadow-neutral-2
-                                                cursor-pointer
-                                                "
-                                    >
-                                        <figure className="w-6">
-                                            <img
-                                                src={
-                                                    globalStore?.darkMode
-                                                        ? s.icon.dark
-                                                        : s.icon.light
-                                                }
-                                            />
-                                        </figure>
-                                        <span className="text-neutral-6">{s.text}</span>
-                                    </div>
+                        {pageProps.sections
+                            .toSorted((a, b) => {
+                                return (a.order ?? 0) > (b.order ?? 1) ? 1 : 0;
+                            })
+                            .map((section, index) => {
+                                return section.show ?? true ? (
+                                    <React.Fragment key={`home-section-${index}`}>
+                                        {section.separator === "before" && (
+                                            <Separator className="my-10" />
+                                        )}
+                                        {getSection(section)}
+                                        {section.separator === "after" && (
+                                            <Separator className="my-10" />
+                                        )}
+                                    </React.Fragment>
+                                ) : (
+                                    <React.Fragment></React.Fragment>
                                 );
                             })}
-                        </div>
                     </div>
                 </div>
                 <BackgroundGradientBottom />

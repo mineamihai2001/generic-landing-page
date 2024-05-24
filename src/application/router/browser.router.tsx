@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouteObject } from "react-router-dom";
 import { Contact, Homepage } from "../pages";
 import { Main } from "../../presentation/app/main/Main";
-import { Page } from "../../domain/model/IConfig";
+import { Page } from "../../domain/model/config";
 import { ReactNode } from "react";
 import { Error } from "../../presentation/app/error";
 

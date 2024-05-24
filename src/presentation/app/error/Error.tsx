@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { useNavigate, useRouteError } from "react-router-dom";
-import { AppError } from "../../../application/error";
 import { Button } from "../../components";
+import { AppError } from "../../../application/error";
 
 interface IProps {}
 

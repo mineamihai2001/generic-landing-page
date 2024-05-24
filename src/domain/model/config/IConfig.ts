@@ -1,3 +1,6 @@
+import { ContactConfig } from "./Contact.config";
+import { HomepageConfig } from "./Homepage.config";
+
 export type PageName = "home" | "contact";
 
 export type ButtonAction = {
@@ -22,34 +25,15 @@ export type Page = {
     index?: boolean;
     display: string;
     navItem?: boolean;
-    props: HomepageProps;
+    config: HomepageConfig | ContactConfig;
 };
 
-export type HomepageProps = {
-    title: string;
-    description?: string;
-    buttons: ButtonConfig[];
-    cards?: unknown[];
-    partners?: IconConfig[];
-};
-
-export type ContactProps = {
-    form: {
-        title: string;
-        description?: string;
-        fields: {
-            id: string;
-            placeholder?: string;
-            cols?: number;
-            type?: "textarea" | "text";
-        }[];
-    };
-    social: {
-        icon: IconConfig;
-        url?: string;
-        text: string;
-    }[];
-};
+export interface Section<T extends string = any> {
+    id: T;
+    order?: number;
+    separator: "before" | "after" | "all";
+    show?: boolean;
+}
 
 export interface IConfig {
     app: {

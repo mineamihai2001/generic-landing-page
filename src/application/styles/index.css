@@ -126,8 +126,10 @@
         --color-additional1-400: #b84a9f;
         --color-additional1-100: #2f0425;
 
+        --color-additional2-100: #180537;
         --color-additional2-200: #2f1061;
         --color-additional2-300: #6b3db6;
+        --color-additional2-400: #8f5ee0;
         --color-additional2-500: #b08cea;
         --color-additional2-600: #d2bdf5;
         --color-additional2-700: #f7f2ff;
@@ -239,4 +241,5 @@ body,
 #root,
 #root > div #app > div {
     height: 100%;
+    /* background-color: var(--color-neutral-0); */
 }

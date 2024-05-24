@@ -1,2 +1,2 @@
-export * from "./BackgroundGradientTop"
-export * from "./BackgroundGradientBottom"
+export * from "./Roadmap"
+export * from "./Landing"

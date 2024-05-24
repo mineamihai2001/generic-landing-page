@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleHalfStroke } from "@fortawesome/free-solid-svg-icons";
 import { Button, IconButton } from "../../../components";
-import { Page } from "../../../../domain/model/IConfig";
+import { Page } from "../../../../domain/model/config";
 
 interface IProps {
     globalStore?: GlobalStore;
