@@ -26,8 +26,8 @@ export const Landing: FC<IProps> = inject("globalStore")(
                     })}
                 </div>
                 <div className="w-full flex justify-center items-center gap-20 my-8">
-                    <Card />
-                    <Card />
+                    <Card className="h-72 w-1/2" border scale gradient/>
+                    <Card className="h-72 w-1/2" border scale gradient/>
                 </div>
                 <div className="w-full flex justify-center items-center gap-10 mt-auto">
                     {(config.partners ?? []).map((p, i) => {

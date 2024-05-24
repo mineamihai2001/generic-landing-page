@@ -17,10 +17,14 @@ export interface LandingConfig extends Section<"landing"> {
 }
 
 export interface RoadmapConfig extends Section<"roadmap"> {
+    titleBox?: {
+        title?: string;
+        subtitle?: string;
+        backgroundTitle?: string;
+    };
     steps: RoadmapStep[];
 }
 
 export type HomepageConfig = {
     sections: HomepageSection[];
 };
-

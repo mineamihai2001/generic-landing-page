@@ -1,7 +1,13 @@
 import { makeObservable, observable } from "mobx";
 import { IStorageService } from "../../domain/services";
 import { IConfigService } from "../../domain/services/IConfig.service";
-import { ContactConfig, HomepageConfig, IConfig, PageName } from "../../domain/model/config";
+import {
+    ContactConfig,
+    DiscoverConfig,
+    HomepageConfig,
+    IConfig,
+    PageName,
+} from "../../domain/model/config";
 
 export class GlobalStore {
     public darkMode: boolean;
@@ -38,8 +44,11 @@ export class GlobalStore {
 
     public getPageConfig(key: "home"): HomepageConfig;
     public getPageConfig(key: "contact"): ContactConfig;
+    public getPageConfig(key: "discover"): DiscoverConfig;
     public getPageConfig(key: string): undefined;
-    public getPageConfig(key: PageName | string): HomepageConfig | ContactConfig | undefined {
+    public getPageConfig(
+        key: PageName | string
+    ): HomepageConfig | ContactConfig | DiscoverConfig | undefined {
         const page = this.getConfig().app.main.pages.find((p) => p.id === key);
         return typeof page === "undefined" ? undefined : page.config;
     }

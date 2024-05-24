@@ -7,7 +7,25 @@ interface IProps {
 
 export const Roadmap: FC<IProps> = ({ config }) => {
     return (
-        <div className="py-20 w-full flex justify-center">
+        <div className="py-20 w-full flex flex-col justify-center items-center">
+            {typeof config.titleBox !== "undefined" && (
+                <div className="relative flex flex-col justify-center items-center py-20 mb-40">
+                    <div className="flex flex-col justify-center items-center relative z-10">
+                        <span className="text-3xl font-thin">{config.titleBox.subtitle ?? ""}</span>
+                        <span className="text-4xl font-medium">{config.titleBox.title ?? ""}</span>
+                    </div>
+                    {typeof config.titleBox.backgroundTitle !== "undefined" && (
+                        <span
+                            className="text-[10rem] font-black text-neutral-0 absolute z-0 bottom-[-50%] opacity-70"
+                            style={{
+                                textShadow: "var(--color-primary-400) 0 0 3px",
+                            }}
+                        >
+                            {config.titleBox.backgroundTitle}
+                        </span>
+                    )}
+                </div>
+            )}
             <div className="relative flex justify-center items-center w-full">
                 <div
                     className="h-[100%] absolute top-0 z-1"
