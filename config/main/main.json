@@ -1,0 +1,86 @@
+{
+    "app": {
+        "brand": {
+            "logo": "/logo.svg",
+            "name": "LOGO"
+        },
+        "main": {
+            "nav": {
+                "buttons": [
+                    {
+                        "text": "Login",
+                        "mode": "outlined"
+                    },
+                    {
+                        "text": "Get Started",
+                        "mode": "contained"
+                    }
+                ]
+            },
+            "pages": [
+                {
+                    "id": "home",
+                    "index": true,
+                    "display": "Home",
+                    "navItem": true,
+                    "props": {
+                        "title": "Lorem ipsum dolor",
+                        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor sit amet.",
+                        "buttons": [
+                            {
+                                "text": "Let's Build",
+                                "mode": "contained"
+                            },
+                            {
+                                "text": "Find Out More",
+                                "mode": "outlined"
+                            }
+                        ],
+                        "partners": [
+                            {
+                                "light": "/nodejs-logo-light.svg",
+                                "dark": "/nodejs-logo-dark.svg"
+                            },
+                            {
+                                "light": "/nest-logo-light.svg",
+                                "dark": "/nest-logo-dark.svg"
+                            },
+                            {
+                                "light": "/react-logo-light.svg",
+                                "dark": "/react-logo-dark.svg"
+                            },
+                            {
+                                "light": "/aws-logo-light.svg",
+                                "dark": "/aws-logo-dark.svg"
+                            },
+                            {
+                                "light": "/docker-logo-light.svg",
+                                "dark": "/docker-logo-dark.svg"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "solutions",
+                    "display": "Solutions",
+                    "navItem": true
+                },
+                {
+                    "id": "pricing",
+                    "display": "Pricing",
+                    "navItem": true
+                },
+                {
+                    "id": "contact",
+                    "display": "Contact",
+                    "navItem": true
+                },
+                {
+                    "id": "about",
+                    "display": "About",
+                    "navItem": true
+                }
+            ]
+        }
+    }
+}
