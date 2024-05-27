@@ -1,7 +1,8 @@
 import { ContactConfig } from "./Contact.config";
+import { DiscoverConfig } from "./Discover.config";
 import { HomepageConfig } from "./Homepage.config";
 
-export type PageName = "home" | "contact";
+export type PageName = "home" | "contact" | "solutions" | "discover";
 
 export type ButtonAction = {
     name: "navigate";
@@ -25,7 +26,7 @@ export type Page = {
     index?: boolean;
     display: string;
     navItem?: boolean;
-    config: HomepageConfig | ContactConfig;
+    config?: HomepageConfig | ContactConfig | DiscoverConfig;
 };
 
 export interface Section<T extends string = any> {
