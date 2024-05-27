@@ -24,4 +24,5 @@ dist-ssr
 *.sw?
 .vscode
 
-public/*
+public/assets
+public/config.json
