@@ -7,6 +7,7 @@ import {
     HomepageConfig,
     IConfig,
     PageName,
+    SolutionsConfig,
 } from "../../domain/model/config";
 
 export class GlobalStore {
@@ -45,10 +46,11 @@ export class GlobalStore {
     public getPageConfig(key: "home"): HomepageConfig;
     public getPageConfig(key: "contact"): ContactConfig;
     public getPageConfig(key: "discover"): DiscoverConfig;
+    public getPageConfig(key: "solutions"): SolutionsConfig;
     public getPageConfig(key: string): undefined;
     public getPageConfig(
         key: PageName | string
-    ): HomepageConfig | ContactConfig | DiscoverConfig | undefined {
+    ): HomepageConfig | ContactConfig | DiscoverConfig | SolutionsConfig | undefined {
         const page = this.getConfig().app.main.pages.find((p) => p.id === key);
         return typeof page === "undefined" ? undefined : page.config;
     }

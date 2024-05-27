@@ -1,16 +1,16 @@
 import { createBrowserRouter, RouteObject } from "react-router-dom";
-import { Contact, Homepage } from "../pages";
+import { Contact, Discover, Homepage, Solutions } from "../pages";
 import { Main } from "../../presentation/app/main/Main";
 import { Page } from "../../domain/model/config";
 import { ReactNode } from "react";
 import { Error } from "../../presentation/app/error";
-import { Discover } from "../pages/Discover";
 
 export function getBrowserRouter(pages: Page[]) {
     const elements: { [key: string]: ReactNode } = {
         home: <Homepage />,
         contact: <Contact />,
         discover: <Discover />,
+        solutions: <Solutions />,
     };
 
     const children: RouteObject[] = pages

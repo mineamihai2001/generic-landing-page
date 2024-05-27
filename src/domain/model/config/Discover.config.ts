@@ -1,4 +1,4 @@
-import { Section } from "./IConfig";
+import { IconConfig, Section } from "./IConfig";
 
 export type Project = {
     image?: string;
@@ -6,6 +6,10 @@ export type Project = {
     subtitle?: string;
     description?: string;
     url?: string;
+    labels: {
+        text: string;
+        icon: IconConfig 
+    }[]
 };
 
 export type DiscoverSection = ProjectsConfig;
