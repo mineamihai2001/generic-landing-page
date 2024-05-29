@@ -13,9 +13,13 @@ interface IProps {
 export const Landing: FC<IProps> = inject("globalStore")(
     observer(({ globalStore, config }) => {
         return (
-            <div className="flex flex-col justify-start items-center gap-6 py-16">
-                <span className="text-7xl font-medium">{config?.title ?? ""}</span>
-                <span className="text-2xl font-light text-neutral-5">{config.description}</span>
+            <div className="flex flex-col justify-start items-center gap-6 py-16 w-full">
+                <div className="2xl:text-7xl md:text-6xl text-4xl font-medium">
+                    {config?.title ?? ""}
+                </div>
+                <div className="2xl:text-2xl md:text-lg text-base text-center text-wrap font-light text-neutral-5">
+                    {config.description}
+                </div>
                 <div className="flex justify-center items-center gap-10">
                     {config.buttons.map((b, i) => {
                         return (
@@ -25,11 +29,15 @@ export const Landing: FC<IProps> = inject("globalStore")(
                         );
                     })}
                 </div>
-                <div className="w-full flex justify-center items-center gap-20 my-8">
-                    <Card className="h-72 w-1/2" border scale gradient/>
-                    <Card className="h-72 w-1/2" border scale gradient/>
+                <div
+                    className="md:w-2/3 w-full flex 2xl:flex-row md:flex-row flex-row 
+                                justify-center items-center md:gap-20 gap-5 
+                                my-8 px-5"
+                >
+                    <Card className="h-72 w-1/2" border scale gradient />
+                    <Card className="h-72 w-1/2" border scale gradient />
                 </div>
-                <div className="w-full flex justify-center items-center gap-10 mt-auto">
+                <div className="w-full flex justify-center items-center gap-10 mt-auto px-5">
                     {(config.partners ?? []).map((p, i) => {
                         return (
                             <figure className="w-32" key={`home-figure-${i}`}>

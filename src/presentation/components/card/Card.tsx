@@ -6,6 +6,7 @@ interface IProps {
     border?: boolean;
     scale?: boolean;
     gradient?: boolean;
+    onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 export const Card: FC<IProps> = ({
@@ -14,6 +15,7 @@ export const Card: FC<IProps> = ({
     border = false,
     scale = false,
     gradient = false,
+    onClick,
 }) => {
     return (
         <div
@@ -28,6 +30,7 @@ export const Card: FC<IProps> = ({
                     ${scale ? "hover:scale-[101%] cursor-pointer" : ""}
                     ${gradient ? "bg-gradient-to-b from-neutral-2 to-neutral-1 " : ""}
                     ${className}`}
+            onClick={onClick}
             // style={{
             //     background:
             //         "linear-gradient(to bottom, var(--color-neutral-200), var(--color-neutral-100) 30% ,var(--color-neutral-0) 90%)",
