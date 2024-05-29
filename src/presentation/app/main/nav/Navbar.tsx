@@ -20,7 +20,7 @@ export const Navbar: FC<IProps> = inject("globalStore")(
         const location = useLocation();
         const isLarge = useMediaQuery(Breakpoints.up("lg"));
 
-        const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+        const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
 
         const toggleDarkMode = () => {
             globalStore?.setDarkMode(!globalStore.darkMode);
@@ -75,7 +75,7 @@ export const Navbar: FC<IProps> = inject("globalStore")(
                     <div className="flex justify-center items-center px-8 py-6 border-b-[0.5px] border-neutral-3">
                         <Hamburger onClick={() => setIsMenuOpen(true)} />
                         <div
-                            className="mx-auto flex justify-center items-center gap-4 cursor-pointer"
+                            className="mx-auto flex justify-center items-center cursor-pointer"
                             onClick={navigateHome}
                         >
                             {typeof globalStore?.getConfig().app.brand.logo !== "undefined" && (
@@ -103,14 +103,14 @@ export const Navbar: FC<IProps> = inject("globalStore")(
                     ></div>
                     {/* DRAWER */}
                     <div
-                        className="absolute h-full w-80 bg-neutral-1 top-0 left-0 z-[1000] border-r-[1px] border-neutral-3"
+                        className="fixed h-full top-0 w-80 bg-neutral-1 left-0 z-[1000] border-r-[1px] border-neutral-3"
                         style={{
                             opacity: !isMenuOpen ? "0" : "1",
                             transition: "all .2s",
                             visibility: !isMenuOpen ? "hidden" : "visible",
                         }}
                     >
-                        <div className="flex flex-col justify-start items-center relative z-50 h-full">
+                        <div className="flex flex-col justify-start items-center z-50 h-full">
                             <div className="flex justify-center items-center w-full py-6 border-b-[1px] border-neutral-3">
                                 <div
                                     className="flex justify-center items-center gap-4 cursor-pointer mr-auto ml-auto"
@@ -168,7 +168,7 @@ export const Navbar: FC<IProps> = inject("globalStore")(
                                 )}
                             </div>
                             <div
-                                className="w-full mt-auto mb-10 flex justify-start items-center gap-4 px-5
+                                className="w-full mt-48 mb-10 flex justify-start items-center gap-4 px-5
                                                 "
                             >
                                 <div>Theme</div>

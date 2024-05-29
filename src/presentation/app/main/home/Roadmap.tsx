@@ -36,7 +36,7 @@ export const Roadmap: FC<IProps> = ({ config }) => {
                     style={{
                         borderWidth: 1,
                         WebkitBorderImage:
-                            "linear-gradient(var(--color-primary-500) , var(--color-primary-300)) 90",
+                            "linear-gradient(var(--color-primary-500), var(--color-primary-300)) 90",
                         MozBorderImage:
                             "linear-gradient(var(--color-primary-500), var(--color-primary-300)) 90",
                         borderImage:
@@ -70,7 +70,7 @@ export const Roadmap: FC<IProps> = ({ config }) => {
                                     {i + 1}
                                 </div>
                                 <div
-                                    className={`absolute md:p-10 p-1 pt-0 lg:w-[30rem] md:w-[25rem] w-[10rem] top-0 ${
+                                    className={`absolute md:p-10 p-1 pt-0 lg:w-[30rem] md:w-[25rem] w-[8rem] top-0 ${
                                         i % 2 === 0
                                             ? "lg:left-[250%] md:left-[150%] left-[125%]"
                                             : "lg:right-[250%] md:right-[150%] right-[125%]"
@@ -84,7 +84,7 @@ export const Roadmap: FC<IProps> = ({ config }) => {
                                 </div>
                                 {typeof s.image !== "undefined" && (
                                     <div
-                                        className={`absolute p-10 pt-0 lg:w-[25rem] md:w-[20rem] w-[10rem] h-[12rem] top-0 ${
+                                        className={`absolute p-10 pt-0 lg:w-[25rem] md:w-[20rem] w-[8rem] h-[12rem] top-0 ${
                                             i % 2 !== 0
                                                 ? "lg:left-[350%] md:left-[150%] left-[125%]"
                                                 : "lg:right-[350%] md:right-[150%] right-[125%]"
