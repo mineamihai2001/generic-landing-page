@@ -11,6 +11,10 @@ interface IProps {
 
 export const Projects: FC<IProps> = inject("globalStore")(
     observer(({ globalStore, config }) => {
+        const handleGoToProject = (url: string) => {
+            window.open(url, "_blank");
+        };
+
         return (
             <div>
                 <div>
@@ -40,9 +44,10 @@ export const Projects: FC<IProps> = inject("globalStore")(
                             <Card
                                 key={`discover-project-${i}`}
                                 gradient
-                                className="col-span-4 py-10 px-16 cursor-pointer
+                                className="col-span-12 2xl:col-span-4 lg:col-span-6 sm:col-span-12 py-10 px-16 cursor-pointer
                                         border-[1px] border-neutral-3
                                         flex flex-col items-start justify-center gap-6"
+                                onClick={() => handleGoToProject(p.url ?? "")}
                             >
                                 <div className="flex justify-start items-center gap-5">
                                     <figure className="w-1/4">

@@ -11,12 +11,16 @@ export const Roadmap: FC<IProps> = ({ config }) => {
             {typeof config.titleBox !== "undefined" && (
                 <div className="relative flex flex-col justify-center items-center py-20 mb-40">
                     <div className="flex flex-col justify-center items-center relative z-10">
-                        <span className="text-3xl font-thin">{config.titleBox.subtitle ?? ""}</span>
-                        <span className="text-4xl font-medium">{config.titleBox.title ?? ""}</span>
+                        <span className="text-3xl font-thin text-center">
+                            {config.titleBox.subtitle ?? ""}
+                        </span>
+                        <span className="text-4xl font-medium text-center">
+                            {config.titleBox.title ?? ""}
+                        </span>
                     </div>
                     {typeof config.titleBox.backgroundTitle !== "undefined" && (
                         <span
-                            className="text-[10rem] font-black text-neutral-0 absolute z-0 bottom-[-50%] opacity-70"
+                            className="md:text-[10rem] text-[3rem] font-black text-neutral-0 absolute z-0 md:bottom-[-50%] bottom-0 opacity-70"
                             style={{
                                 textShadow: "var(--color-primary-400) 0 0 3px",
                             }}
@@ -66,18 +70,24 @@ export const Roadmap: FC<IProps> = ({ config }) => {
                                     {i + 1}
                                 </div>
                                 <div
-                                    className={`absolute p-10 pt-0 w-[30rem] top-0 ${
-                                        i % 2 === 0 ? "left-[250%]" : "right-[250%]"
+                                    className={`absolute md:p-10 p-1 pt-0 md:w-[30rem] w-[10rem] top-0 ${
+                                        i % 2 === 0
+                                            ? "md:left-[250%] left-[125%]"
+                                            : "md:right-[250%] right-[125%]"
                                     }
                                         flex flex-col gap-2`}
                                 >
-                                    <span className="text-2xl font-medium">{s.title}</span>
-                                    <p className="text-neutral-5 text-sm">{s.description}</p>
+                                    <div className="text-2xl font-medium w-full">{s.title}</div>
+                                    <div className="text-neutral-5 text-sm w-full">
+                                        {s.description}
+                                    </div>
                                 </div>
                                 {typeof s.image !== "undefined" && (
                                     <div
-                                        className={`absolute p-10 pt-0 w-[25rem] h-[12rem] top-0 ${
-                                            i % 2 !== 0 ? "left-[350%]" : "right-[350%]"
+                                        className={`absolute p-10 pt-0 md:w-[25rem] w-[10rem] h-[12rem] top-0 ${
+                                            i % 2 !== 0
+                                                ? "md:left-[350%] left-[125%]"
+                                                : "md:right-[350%] right-[125%]"
                                         }
                                         flex flex-col gap-2
                                         rounded-xl border border-primary-3 opacity-40`}
