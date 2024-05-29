@@ -9,10 +9,10 @@ interface IProps {
 export const ContactForm: FC<IProps> = ({ config }) => {
     return (
         <form
-            className="w-1/2 bg-neutral-1 p-8 relative
-        border-2 border-primary-3 rounded-xl
-        shadow-md dark:shadow-neutral-2 
-        overflow-hidden"
+            className="md:w-1/2 w-full bg-neutral-1 p-8 relative
+                    border-2 border-primary-3 rounded-xl
+                    shadow-md dark:shadow-neutral-2 
+                    overflow-hidden"
         >
             <div
                 className="absolute w-[100%] h-[100%] top-[0%] left-[0%] translate-x-[-20%] z-0"
