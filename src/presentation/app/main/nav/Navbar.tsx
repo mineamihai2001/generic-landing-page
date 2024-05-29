@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { inject, observer } from "mobx-react";
 import { GlobalStore } from "../../../../infrastructure/store";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -94,6 +94,7 @@ export const Navbar: FC<IProps> = inject("globalStore")(
                     {/* OVERLAY */}
                     <div
                         className="absolute h-full w-full top-0 left-0 bg-neutral-0 z-[900]"
+                        onClick={() => setIsMenuOpen(false)}
                         style={{
                             opacity: !isMenuOpen ? "0" : ".5",
                             transition: "all .2s",
@@ -145,7 +146,10 @@ export const Navbar: FC<IProps> = inject("globalStore")(
                                                     : ""
                                             }`}
                                         >
-                                            <Link to={page.index ? "/" : page.id}>
+                                            <Link
+                                                to={page.index ? "/" : page.id}
+                                                onClick={() => setIsMenuOpen(false)}
+                                            >
                                                 <span className="font-normal">{page.display}</span>
                                             </Link>
                                         </div>

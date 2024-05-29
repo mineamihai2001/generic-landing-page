@@ -70,10 +70,10 @@ export const Roadmap: FC<IProps> = ({ config }) => {
                                     {i + 1}
                                 </div>
                                 <div
-                                    className={`absolute md:p-10 p-1 pt-0 md:w-[30rem] w-[10rem] top-0 ${
+                                    className={`absolute md:p-10 p-1 pt-0 lg:w-[30rem] md:w-[25rem] w-[10rem] top-0 ${
                                         i % 2 === 0
-                                            ? "md:left-[250%] left-[125%]"
-                                            : "md:right-[250%] right-[125%]"
+                                            ? "lg:left-[250%] md:left-[150%] left-[125%]"
+                                            : "lg:right-[250%] md:right-[150%] right-[125%]"
                                     }
                                         flex flex-col gap-2`}
                                 >
@@ -84,10 +84,10 @@ export const Roadmap: FC<IProps> = ({ config }) => {
                                 </div>
                                 {typeof s.image !== "undefined" && (
                                     <div
-                                        className={`absolute p-10 pt-0 md:w-[25rem] w-[10rem] h-[12rem] top-0 ${
+                                        className={`absolute p-10 pt-0 lg:w-[25rem] md:w-[20rem] w-[10rem] h-[12rem] top-0 ${
                                             i % 2 !== 0
-                                                ? "md:left-[350%] left-[125%]"
-                                                : "md:right-[350%] right-[125%]"
+                                                ? "lg:left-[350%] md:left-[150%] left-[125%]"
+                                                : "lg:right-[350%] md:right-[150%] right-[125%]"
                                         }
                                         flex flex-col gap-2
                                         rounded-xl border border-primary-3 opacity-40`}

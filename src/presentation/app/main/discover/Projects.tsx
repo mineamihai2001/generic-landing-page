@@ -27,7 +27,7 @@ export const Projects: FC<IProps> = inject("globalStore")(
                             </div>
                             {typeof config.titleBox.backgroundTitle !== "undefined" && (
                                 <span
-                                    className="text-[7rem] font-black text-neutral-0 absolute z-0  opacity-70"
+                                    className="md:text-[7rem] text-[3rem] font-black text-neutral-0 bottom-[15%] md:top-[10%] absolute z-0  opacity-70"
                                     style={{
                                         textShadow: "var(--color-primary-400) 0 0 3px",
                                     }}
@@ -44,7 +44,8 @@ export const Projects: FC<IProps> = inject("globalStore")(
                             <Card
                                 key={`discover-project-${i}`}
                                 gradient
-                                className="col-span-12 2xl:col-span-4 lg:col-span-6 sm:col-span-12 py-10 px-16 cursor-pointer
+                                className="col-span-12 2xl:col-span-4 lg:col-span-6 sm:col-span-12 
+                                        py-10 md:px-16 px-6 md:mx-0 mx-14 cursor-pointer
                                         border-[1px] border-neutral-3
                                         flex flex-col items-start justify-center gap-6"
                                 onClick={() => handleGoToProject(p.url ?? "")}
