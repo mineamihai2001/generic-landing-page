@@ -1,2 +1,2 @@
 export * from "./Roadmap"
-export * from "./Landing"
+export * from "./landing/Landing"

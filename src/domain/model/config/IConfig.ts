@@ -21,6 +21,15 @@ export type IconConfig = {
     dark: string;
 };
 
+export type ImageConfig = {
+    source:
+        | {
+              light: string;
+              dark: string;
+          }
+        | string;
+};
+
 export type Page = {
     id: string;
     index?: boolean;
