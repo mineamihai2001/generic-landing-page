@@ -24,7 +24,7 @@ export const Error: FC<IProps> = () => {
 
     return (
         <div
-            className="w-full h-full flex justify-center items-center"
+            className="w-full h-screen flex justify-center items-center"
             style={{
                 background:
                     "linear-gradient(180deg, var(--color-neutral-200), var(--color-neutral-100))",

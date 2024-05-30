@@ -20,7 +20,7 @@ export const Navbar: FC<IProps> = inject("globalStore")(
         const location = useLocation();
         const isLarge = useMediaQuery(Breakpoints.up("lg"));
 
-        const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
+        const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
         const toggleDarkMode = () => {
             globalStore?.setDarkMode(!globalStore.darkMode);
