@@ -14,16 +14,16 @@ export const Landing: FC<IProps> = inject("globalStore")(
     observer(({ globalStore, config }) => {
         return (
             <div className="flex flex-col justify-start items-center gap-6 py-16 w-full">
-                <div className="2xl:text-7xl md:text-6xl text-4xl font-medium">
+                <div className="md:w-2/3 2xl:text-6xl md:text-5xl text-3xl font-medium text-center text-wrap">
                     {config?.title ?? ""}
                 </div>
-                <div className="2xl:text-2xl md:text-lg text-base text-center text-wrap font-light text-neutral-5">
+                <div className="md:w-3/4 2xl:text-xl md:text-lg text-base text-center text-wrap font-light text-neutral-5">
                     {config.description}
                 </div>
                 <div className="flex justify-center items-center gap-10">
                     {config.buttons.map((b, i) => {
                         return (
-                            <Button className="px-8 mt-2" mode={b.mode} key={`home-button-${i}`}>
+                            <Button className="px-8 mt-2 md:text-base text-xs" mode={b.mode} key={`home-button-${i}`}>
                                 {b.text}
                             </Button>
                         );
