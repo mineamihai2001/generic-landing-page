@@ -67,7 +67,7 @@ export const Projects: FC<IProps> = inject("globalStore")(
                                         return (
                                             <div
                                                 key={`discover-project-${i}-label-${i}`}
-                                                className="col-span-4 flex justify-center items-center gap-2 
+                                                className="md:col-span-4 col-span-6 flex justify-center items-center gap-2 
                                                             border-[1px] border-primary-4
                                                             rounded-full px-5 py-2"
                                             >

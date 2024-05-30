@@ -1,4 +1,4 @@
-import { ButtonConfig, IconConfig, Section } from "./IConfig";
+import { ButtonConfig, IconConfig, ImageConfig, Section } from "./IConfig";
 
 export type RoadmapStep = {
     title: string;
@@ -12,7 +12,12 @@ export interface LandingConfig extends Section<"landing"> {
     title: string;
     description?: string;
     buttons: ButtonConfig[];
-    cards?: unknown[];
+    cover?: {
+        image: ImageConfig;
+    };
+    cards?: {
+        image: ImageConfig;
+    }[];
     partners?: IconConfig[];
 }
 

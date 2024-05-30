@@ -39,6 +39,33 @@
                                         "mode": "outlined"
                                     }
                                 ],
+                                "cover": {
+                                    "image": {
+                                        "source": "/assets/rocket.png"
+                                    }
+                                },
+                                "cards": [
+                                    {
+                                        "image": {
+                                            "source": "/assets/current-dark.png"
+                                        }
+                                    },
+                                    {
+                                        "image": {
+                                            "source": "/assets/current-light.png"
+                                        }
+                                    },
+                                    {
+                                        "image": {
+                                            "source": "/assets/current-dark.png"
+                                        }
+                                    },
+                                    {
+                                        "image": {
+                                            "source": "/assets/current-light.png"
+                                        }
+                                    }
+                                ],
                                 "partners": [
                                     {
                                         "light": "/assets/nodejs-logo-light.svg",
